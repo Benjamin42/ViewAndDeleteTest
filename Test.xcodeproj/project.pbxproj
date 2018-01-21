@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB016E5B2013640E0049D9A4 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EB016E5A2013640E0049D9A4 /* libsqlite3.0.tbd */; };
+		EB016E5E201397300049D9A4 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB016E5D201397300049D9A4 /* DatabaseManager.m */; };
 		EBD389852009767A009C2AC8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD389842009767A009C2AC8 /* AppDelegate.m */; };
 		EBD389882009767A009C2AC8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD389872009767A009C2AC8 /* main.m */; };
 		EBD3898B2009767A009C2AC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD3898A2009767A009C2AC8 /* ViewController.m */; };
@@ -14,6 +16,7 @@
 		EBD389902009767A009C2AC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBD3898E2009767A009C2AC8 /* Main.storyboard */; };
 		EBD3899B2009767B009C2AC8 /* TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD3899A2009767B009C2AC8 /* TestTests.m */; };
 		EBD389A62009767B009C2AC8 /* TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD389A52009767B009C2AC8 /* TestUITests.m */; };
+		EBD389BB200B7669009C2AC8 /* ImageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD389BA200B7669009C2AC8 /* ImageObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB016E5A2013640E0049D9A4 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		EB016E5C201397300049D9A4 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		EB016E5D201397300049D9A4 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		EBD389802009767A009C2AC8 /* Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD389832009767A009C2AC8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EBD389842009767A009C2AC8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -49,6 +55,8 @@
 		EBD389A12009767B009C2AC8 /* TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBD389A52009767B009C2AC8 /* TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestUITests.m; sourceTree = "<group>"; };
 		EBD389A72009767B009C2AC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBD389B9200B7669009C2AC8 /* ImageObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageObject.h; path = myClasses/ImageObject.h; sourceTree = "<group>"; };
+		EBD389BA200B7669009C2AC8 /* ImageObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImageObject.m; path = myClasses/ImageObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB016E5B2013640E0049D9A4 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +88,7 @@
 		EBD389772009767A009C2AC8 = {
 			isa = PBXGroup;
 			children = (
+				EB016E5A2013640E0049D9A4 /* libsqlite3.0.tbd */,
 				EBD389822009767A009C2AC8 /* Test */,
 				EBD389992009767B009C2AC8 /* TestTests */,
 				EBD389A42009767B009C2AC8 /* TestUITests */,
@@ -107,6 +117,10 @@
 				EBD3898E2009767A009C2AC8 /* Main.storyboard */,
 				EBD389912009767A009C2AC8 /* Info.plist */,
 				EBD389862009767A009C2AC8 /* Supporting Files */,
+				EBD389B9200B7669009C2AC8 /* ImageObject.h */,
+				EBD389BA200B7669009C2AC8 /* ImageObject.m */,
+				EB016E5C201397300049D9A4 /* DatabaseManager.h */,
+				EB016E5D201397300049D9A4 /* DatabaseManager.m */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -268,6 +282,8 @@
 			files = (
 				EBD3898B2009767A009C2AC8 /* ViewController.m in Sources */,
 				EBD389882009767A009C2AC8 /* main.m in Sources */,
+				EBD389BB200B7669009C2AC8 /* ImageObject.m in Sources */,
+				EB016E5E201397300049D9A4 /* DatabaseManager.m in Sources */,
 				EBD389852009767A009C2AC8 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +505,7 @@
 				EBD389AC2009767B009C2AC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBD389AD2009767B009C2AC8 /* Build configuration list for PBXNativeTarget "TestTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +514,7 @@
 				EBD389AF2009767B009C2AC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EBD389B02009767B009C2AC8 /* Build configuration list for PBXNativeTarget "TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +523,7 @@
 				EBD389B22009767B009C2AC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
