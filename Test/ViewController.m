@@ -118,20 +118,22 @@
                                                          // Return YES if the enumeration should continue after the error.
                                                          return YES;
                                                      }];
-                currentPath = docUrl.absoluteString;
+                currentPath = [docUrl.path stringByAppendingString:@"/"];
 
                 // TODO : si dbManager exist, le libérer (pour fermer la base)
                 dbManager = [[DatabaseManager alloc] initWithPath:currentPath];
                 
                 [self resetLoader];
                 for (NSURL *url in enumerator) {
-                    ImageObject *myImage = [[ImageObject alloc] initWithURL:url];
-                    if ([dbManager exists:[myImage getFileName]]) {
-                        [myImage switchToDelete];
+                    NSString *extension = [[url pathExtension] uppercaseString];
+                    if ([extension isEqualToString:@"JPEG"] || [extension isEqualToString:@"PNG"] || [extension isEqualToString:@"JPG"]) {
+                        ImageObject *myImage = [[ImageObject alloc] initWithURL:url];
+                        if ([dbManager exists:[myImage getFileName]]) {
+                            [myImage switchToDelete];
+                        }
+                        [imgArray addObject:myImage];
                     }
-                    [imgArray addObject:myImage];
                 }
-
                 
                 // On affiche la premiere image du tableau
                 [self loadCurrentImage];
@@ -160,7 +162,21 @@
 }
 
 - (IBAction)purge:(id)sender {
-    [dbManager selectAll];
+    NSMutableArray *toDeleteArray = [dbManager selectAll];
+    int i;
+    
+    for (i = 0 ; i < [toDeleteArray count] ; i++) {
+        NSString *fileName = [toDeleteArray objectAtIndex:i];
+        NSLog(@"Fichier a supprimer : %@", [currentPath stringByAppendingString:fileName]);
+        NSError *error;
+        [[NSFileManager defaultManager] removeItemAtPath:[currentPath stringByAppendingString:fileName] error:&error];
+        NSLog(@"%@", error);
+    }
+    
+    // Suppression du fichier de la base de donnée
+    [dbManager deleteDatabase:currentPath];
+    
+    // TODO : On recharge l'ensemble du répertoire et on affiche la 1ere image
 }
 
 // --------------- Usefull actions ------------------------------------

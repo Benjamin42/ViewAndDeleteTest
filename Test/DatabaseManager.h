@@ -14,11 +14,13 @@
     NSString *path;
 }
 
+- (void) deleteDatabase:(NSString *) aPath;
+
 - (id) initWithPath:(NSString *) aPath;
 
 - (void) updateLine: (NSString *) fileName, BOOL toDelete;
 
-- (void) selectAll;
+- (NSMutableArray *) selectAll;
 
 - (BOOL) exists: (NSString *) fileName;
 

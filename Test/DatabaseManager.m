@@ -10,6 +10,11 @@
 
 @implementation DatabaseManager
 
+- (void) deleteDatabase:(NSString *) aPath {
+    NSError *error;
+    [[NSFileManager defaultManager] removeItemAtPath:[path stringByAppendingString:@"/database.db"] error:&error];
+}
+
 - (id) initWithPath:(NSString *) aPath {
     if (self = [super init]) {
         path = aPath;
@@ -57,17 +62,18 @@
     sqlite3_finalize(compileStatement);
 }
 
-- (void) selectAll {
-   
+- (NSMutableArray *) selectAll {
+    NSMutableArray *imgArray = [[NSMutableArray alloc] init];
     const char *sqlStatement = "SELECT filename FROM files_to_delete";
     sqlite3_stmt *compileStatement;
     if (sqlite3_prepare_v2(database, sqlStatement, -1, &compileStatement, NULL) == SQLITE_OK) {
         while (sqlite3_step(compileStatement) == SQLITE_ROW) {
             NSString *fileName = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(compileStatement, 0)];
-            NSLog(@"Trouvé dans la base de donnée : %@", fileName);
+            [imgArray addObject:fileName];
         }
     }
     sqlite3_finalize(compileStatement);
+    return imgArray;
 }
 
 - (BOOL) exists: (NSString *) fileName {
